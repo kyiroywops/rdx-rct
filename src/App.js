@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Routes, Route} from 'react-router-dom';
+import Inicio from './componentes/Inicio';
+import Tienda from './componentes/Tienda';
+import Blog from './componentes/Blog';
+import Error404 from './componentes/Error404';
 
 const App = () => {
   return ( 
@@ -11,6 +15,18 @@ const App = () => {
         <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/tienda">Tienda</NavLink>
       </Menu>
+      <main>
+        <Routes>
+          <Route path="*" element={<Error404 />} />
+          <Route path="/" element={<Inicio />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/tienda" element={<Tienda />} />
+
+        </Routes>
+      </main>
+      <aside>
+        <h3>Sidebar</h3>
+      </aside>
 
     </Contenedor>
    );
