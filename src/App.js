@@ -5,6 +5,7 @@ import Inicio from './componentes/Inicio';
 import Tienda from './componentes/Tienda';
 import Blog from './componentes/Blog';
 import Error404 from './componentes/Error404';
+import Carrito from './componentes/Carrito';
 
 const App = () => {
   const productos = [
@@ -32,7 +33,7 @@ const App = () => {
         </Routes>
       </main>
       <aside>
-        <h3>Sidebar</h3>
+        <Carrito />
       </aside>
 
     </Contenedor>
