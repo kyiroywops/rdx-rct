@@ -23,19 +23,31 @@ const App = () => {
     } else{
       const nuevoCarrito = [...carrito];
     
-    const yaEstaEnCarrito = nuevoCarrito.filter((productoDeCarrito) => {
+      const yaEstaEnCarrito = nuevoCarrito.filter((productoDeCarrito) => {
       return productoDeCarrito.id === idProductoAAgregar;
 
-    }).length > 0;
+     }).length > 0;
 
-    if(yaEstaEnCarrito){
+      if(yaEstaEnCarrito){
+        nuevoCarrito.forEach((productoDeCarrito, index) => {
+          if(productoDeCarrito.id === idProductoAAgregar){
+            const cantidad = nuevoCarrito[index].cantidad;
+            nuevoCarrito[index] = {id: idProductoAAgregar, nombre: nombre, cantidad: cantidad + 1};
+
+          }
+        });
+
+      } else {
+          nuevoCarrito.push({id: idProductoAAgregar, nombre: nombre, cantidad: 1});
+        
+        
       
-    }
+      }
 
 
 
-
-    }
+      cambiarCarrito(nuevoCarrito);
+      }
   }
 
   return ( 
