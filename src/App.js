@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {NavLink, Routes, Route} from 'react-router-dom';
 import Inicio from './componentes/Inicio';
@@ -14,6 +14,8 @@ const App = () => {
     { id: 3, nombre: 'Producto 3', precio: 50 },
     { id: 4, nombre: 'Producto 4', precio: 50 }
 ]
+
+  const [carrito, cambiarCarrito] = useState([]);
 
   return ( 
     <Contenedor>
@@ -33,7 +35,7 @@ const App = () => {
         </Routes>
       </main>
       <aside>
-        <Carrito />
+        <Carrito carrito={carrito} />
       </aside>
 
     </Contenedor>
